@@ -3,7 +3,7 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 
 
-class Config:
+class Config(object):
     # flask environ
     APP_NAME = 'Deployment API'
     SECRET_KEY = os.environ['SECRET_KEY']
@@ -19,7 +19,17 @@ class Config:
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
-    # Deployment URL
+    # celery configuration
+    CELERY_BROKER_URL = 'redis://localhost:6379/0'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_IGNORE_RESULT = False
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+    CELERY_CONCURRENCY = 3
+    CELERY_ACKS_LATE = True
+    CELERYD_PREFETCH_MULTIPLIER = 1
+
+    # deployment URL
     DEPLOYMENT_URL = os.environ['DEPLOYMENT_URL']
 
     # Logs
@@ -36,8 +46,7 @@ class Config:
                                       'level': 'DEBUG',
                                       'propagate': True,
                                       'formatter': 'standard',
-                                      'stream': '/dev/stdout'
-}
+                                      'stream': '/dev/stdout'}
                               },
                   }
 

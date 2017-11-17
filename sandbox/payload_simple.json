@@ -1,0 +1,197 @@
+{
+  "ref": "refs/heads/integracion",
+  "before": "7a3d2b6de44b7cbb4b2b0102066c523b3de353d5",
+  "after": "445be26168bca55cf1455f793066a5da9dc7926c",
+  "created": false,
+  "deleted": false,
+  "forced": false,
+  "base_ref": null,
+  "compare": "https://github.com/e-gob/SIMPLE/compare/7a3d2b6de44b...445be26168bc",
+  "commits": [
+    {
+      "id": "445be26168bca55cf1455f793066a5da9dc7926c",
+      "tree_id": "5f9e2513cc88400b87e3a24f8afe3232c00fa303",
+      "distinct": true,
+      "message": "Feature/usabilidad sprint 3 (#641)\n\n* Se agrega archivos de log a gitignore\r\n\r\n* integración google recaptcha, eliminación logica de procesos, enlaces hacia ayuda\r\n\r\n* se elimina ejemplos de key para token de captcha\r\n\r\n* Integra mapa en formulario backend\r\n\r\n* se mejora integración de mapa\r\n\r\n* se corrige carga de multiples mapas en formularios, se corrige visualización de mapa en documentos\r\n\r\n* Se corrigen observaciones en mapa levantadas en reunión de seguimiento, además se corrige geolocalización.\r\n\r\n* Se integra atributo de ambiente y vinculación de cuentas\r\n\r\n* Se resuelve issue en administrador de cuentas\r\n\r\n* Elimina la capacidad de crear nuevos usuarios en la interfaz que utilizan los ciudadanos\r\n\r\n* Elimina la capacidad de crear nuevos usuarios en la interfaz que utilizan los ciudadanos\r\n\r\n* se integra requerimiento 'Obtener datos del usuario desde clave única'\r\n\r\n* Se integra validación de reglas\r\n\r\n* se corrige problema en vinculación de cuentas al tratar de vincular una cuenta nueva directamente\r\n\r\n* Se agrega ejemplo en config.php.sample de como debe ir variable de maps.\r\n\r\n* se cambia version de scope para clave unica\r\n\r\n* Se agrega event on enter para input de mapa",
+      "timestamp": "2017-11-15T14:32:47-03:00",
+      "url": "https://github.com/e-gob/SIMPLE/commit/445be26168bca55cf1455f793066a5da9dc7926c",
+      "author": {
+        "name": "Jimmy M",
+        "email": "jmunodu@gmail.com",
+        "username": "jmunodu"
+      },
+      "committer": {
+        "name": "Manuel Muñoz",
+        "email": "manuel.munoz00@gmail.com",
+        "username": "manuelmunoz00"
+      },
+      "added": [
+
+      ],
+      "removed": [
+
+      ],
+      "modified": [
+        "application/models/campo_maps.php"
+      ]
+    }
+  ],
+  "head_commit": {
+    "id": "445be26168bca55cf1455f793066a5da9dc7926c",
+    "tree_id": "5f9e2513cc88400b87e3a24f8afe3232c00fa303",
+    "distinct": true,
+    "message": "Feature/usabilidad sprint 3 (#641)\n\n* Se agrega archivos de log a gitignore\r\n\r\n* integración google recaptcha, eliminación logica de procesos, enlaces hacia ayuda\r\n\r\n* se elimina ejemplos de key para token de captcha\r\n\r\n* Integra mapa en formulario backend\r\n\r\n* se mejora integración de mapa\r\n\r\n* se corrige carga de multiples mapas en formularios, se corrige visualización de mapa en documentos\r\n\r\n* Se corrigen observaciones en mapa levantadas en reunión de seguimiento, además se corrige geolocalización.\r\n\r\n* Se integra atributo de ambiente y vinculación de cuentas\r\n\r\n* Se resuelve issue en administrador de cuentas\r\n\r\n* Elimina la capacidad de crear nuevos usuarios en la interfaz que utilizan los ciudadanos\r\n\r\n* Elimina la capacidad de crear nuevos usuarios en la interfaz que utilizan los ciudadanos\r\n\r\n* se integra requerimiento 'Obtener datos del usuario desde clave única'\r\n\r\n* Se integra validación de reglas\r\n\r\n* se corrige problema en vinculación de cuentas al tratar de vincular una cuenta nueva directamente\r\n\r\n* Se agrega ejemplo en config.php.sample de como debe ir variable de maps.\r\n\r\n* se cambia version de scope para clave unica\r\n\r\n* Se agrega event on enter para input de mapa",
+    "timestamp": "2017-11-15T14:32:47-03:00",
+    "url": "https://github.com/e-gob/SIMPLE/commit/445be26168bca55cf1455f793066a5da9dc7926c",
+    "author": {
+      "name": "Jimmy M",
+      "email": "jmunodu@gmail.com",
+      "username": "jmunodu"
+    },
+    "committer": {
+      "name": "Manuel Muñoz",
+      "email": "manuel.munoz00@gmail.com",
+      "username": "manuelmunoz00"
+    },
+    "added": [
+
+    ],
+    "removed": [
+
+    ],
+    "modified": [
+      "application/models/campo_maps.php"
+    ]
+  },
+  "repository": {
+    "id": 46860868,
+    "name": "SIMPLE",
+    "full_name": "e-gob/SIMPLE",
+    "owner": {
+      "name": "e-gob",
+      "email": null,
+      "login": "e-gob",
+      "id": 7003419,
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7003419?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/e-gob",
+      "html_url": "https://github.com/e-gob",
+      "followers_url": "https://api.github.com/users/e-gob/followers",
+      "following_url": "https://api.github.com/users/e-gob/following{/other_user}",
+      "gists_url": "https://api.github.com/users/e-gob/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/e-gob/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/e-gob/subscriptions",
+      "organizations_url": "https://api.github.com/users/e-gob/orgs",
+      "repos_url": "https://api.github.com/users/e-gob/repos",
+      "events_url": "https://api.github.com/users/e-gob/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/e-gob/received_events",
+      "type": "Organization",
+      "site_admin": false
+    },
+    "private": false,
+    "html_url": "https://github.com/e-gob/SIMPLE",
+    "description": "SIMPLE (Sistema para la Implementación de Procesos Ligeramente Estandarizados) corresponde a un sistema para la implementación de procesos electrónicos mediante un diseñador simplificado, desarrollado para entregar una solución flexible a instituciones públicas que deseen digitalizar sus trámites de forma amigable, rápida y sencilla.",
+    "fork": false,
+    "url": "https://github.com/e-gob/SIMPLE",
+    "forks_url": "https://api.github.com/repos/e-gob/SIMPLE/forks",
+    "keys_url": "https://api.github.com/repos/e-gob/SIMPLE/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/e-gob/SIMPLE/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/e-gob/SIMPLE/teams",
+    "hooks_url": "https://api.github.com/repos/e-gob/SIMPLE/hooks",
+    "issue_events_url": "https://api.github.com/repos/e-gob/SIMPLE/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/e-gob/SIMPLE/events",
+    "assignees_url": "https://api.github.com/repos/e-gob/SIMPLE/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/e-gob/SIMPLE/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/e-gob/SIMPLE/tags",
+    "blobs_url": "https://api.github.com/repos/e-gob/SIMPLE/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/e-gob/SIMPLE/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/e-gob/SIMPLE/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/e-gob/SIMPLE/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/e-gob/SIMPLE/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/e-gob/SIMPLE/languages",
+    "stargazers_url": "https://api.github.com/repos/e-gob/SIMPLE/stargazers",
+    "contributors_url": "https://api.github.com/repos/e-gob/SIMPLE/contributors",
+    "subscribers_url": "https://api.github.com/repos/e-gob/SIMPLE/subscribers",
+    "subscription_url": "https://api.github.com/repos/e-gob/SIMPLE/subscription",
+    "commits_url": "https://api.github.com/repos/e-gob/SIMPLE/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/e-gob/SIMPLE/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/e-gob/SIMPLE/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/e-gob/SIMPLE/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/e-gob/SIMPLE/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/e-gob/SIMPLE/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/e-gob/SIMPLE/merges",
+    "archive_url": "https://api.github.com/repos/e-gob/SIMPLE/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/e-gob/SIMPLE/downloads",
+    "issues_url": "https://api.github.com/repos/e-gob/SIMPLE/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/e-gob/SIMPLE/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/e-gob/SIMPLE/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/e-gob/SIMPLE/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/e-gob/SIMPLE/labels{/name}",
+    "releases_url": "https://api.github.com/repos/e-gob/SIMPLE/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/e-gob/SIMPLE/deployments",
+    "created_at": 1448455258,
+    "updated_at": "2017-10-29T07:40:45Z",
+    "pushed_at": 1510767167,
+    "git_url": "git://github.com/e-gob/SIMPLE.git",
+    "ssh_url": "git@github.com:e-gob/SIMPLE.git",
+    "clone_url": "https://github.com/e-gob/SIMPLE.git",
+    "svn_url": "https://github.com/e-gob/SIMPLE",
+    "homepage": "",
+    "size": 80369,
+    "stargazers_count": 22,
+    "watchers_count": 22,
+    "language": "PHP",
+    "has_issues": true,
+    "has_projects": true,
+    "has_downloads": true,
+    "has_wiki": true,
+    "has_pages": true,
+    "forks_count": 19,
+    "mirror_url": null,
+    "archived": false,
+    "open_issues_count": 3,
+    "forks": 19,
+    "open_issues": 3,
+    "watchers": 22,
+    "default_branch": "master",
+    "stargazers": 22,
+    "master_branch": "master",
+    "organization": "e-gob"
+  },
+  "pusher": {
+    "name": "manuelmunoz00",
+    "email": "manuel.munoz00@gmail.com"
+  },
+  "organization": {
+    "login": "e-gob",
+    "id": 7003419,
+    "url": "https://api.github.com/orgs/e-gob",
+    "repos_url": "https://api.github.com/orgs/e-gob/repos",
+    "events_url": "https://api.github.com/orgs/e-gob/events",
+    "hooks_url": "https://api.github.com/orgs/e-gob/hooks",
+    "issues_url": "https://api.github.com/orgs/e-gob/issues",
+    "members_url": "https://api.github.com/orgs/e-gob/members{/member}",
+    "public_members_url": "https://api.github.com/orgs/e-gob/public_members{/member}",
+    "avatar_url": "https://avatars0.githubusercontent.com/u/7003419?v=4",
+    "description": null
+  },
+  "sender": {
+    "login": "manuelmunoz00",
+    "id": 11193685,
+    "avatar_url": "https://avatars2.githubusercontent.com/u/11193685?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/manuelmunoz00",
+    "html_url": "https://github.com/manuelmunoz00",
+    "followers_url": "https://api.github.com/users/manuelmunoz00/followers",
+    "following_url": "https://api.github.com/users/manuelmunoz00/following{/other_user}",
+    "gists_url": "https://api.github.com/users/manuelmunoz00/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/manuelmunoz00/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/manuelmunoz00/subscriptions",
+    "organizations_url": "https://api.github.com/users/manuelmunoz00/orgs",
+    "repos_url": "https://api.github.com/users/manuelmunoz00/repos",
+    "events_url": "https://api.github.com/users/manuelmunoz00/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/manuelmunoz00/received_events",
+    "type": "User",
+    "site_admin": false
+  }
+}

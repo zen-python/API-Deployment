@@ -1,6 +1,6 @@
 import json
 from flask import Flask, jsonify, make_response
-from app.extensions import aws_ext, dbm_ext, docker_ext, infra_ext, logcfg
+from app.extensions import celery, aws_ext, dbm_ext, docker_ext, infra_ext, logcfg
 from app.config import config
 
 
@@ -8,7 +8,6 @@ def create_app(config_name):
     """Application Factory"""
     app = Flask(__name__)
     app.config.from_object(config[config_name])
-
     with app.app_context():
         register_extensions(app)
         register_blueprints(app)
@@ -38,6 +37,7 @@ def register_extensions(app):
     infra_ext.init_app(app)
     docker_ext.init_app(app)
     logcfg.init_app(app)
+    celery.config_from_object(app.config)
 
 
 def register_blueprints(app):

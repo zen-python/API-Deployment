@@ -1,5 +1,6 @@
 from flask import current_app
 from pymongo import MongoClient
+# from remote_pdb import RemotePdb
 
 
 class DBMExt(object):
@@ -27,12 +28,23 @@ class DBMExt(object):
         return str(self.__handle.images_docker_hub.find({"repo_name": repo_name})[0]['tag'])
 
     def obtain_auto_scaling_grp(self, repo_name):
-        return self.__handle.images_docker_hub.find({"repo_name": repo_name})[0]['auto_scaling']
+        cursor = self.__handle.images_docker_hub.find({"repo_name": repo_name})[0]
+        if 'auto_scaling' in cursor:
+            return cursor['auto_scaling']
+        return None
 
     def obtain_last_github_commit(self, repo_full):
         return self.__handle.deployment_code.find({"repo_full": repo_full})[0]['last_update']
 
+    def obtain_deploy_image(self, repo_full):
+        cursor = self.__handle.deployment_code.find({"repo_full": repo_full})[0]
+        if 'run_commands' in cursor:
+            return cursor['run_commands']
+        # RemotePdb('127.0.0.1', 4444).set_trace()
+        return None
 
+    def obtain_run_commands(self, repo_full):
+        return self.__handle.deployment_code.find({"repo_full": repo_full})[0]
 
     # Update info
     def update_docker_image_info(self, repo_name, tag, datetime, pusher):

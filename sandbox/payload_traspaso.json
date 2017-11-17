@@ -1,0 +1,222 @@
+{
+  "ref": "refs/heads/devel",
+  "before": "788991d11d0e100efa4b0929ab1679fa62d89a31",
+  "after": "b51074d1951d571f0765b17b4d828bc3ddd6c2f9",
+  "created": false,
+  "deleted": false,
+  "forced": false,
+  "base_ref": null,
+  "compare": "https://github.com/e-gob/traspaso-l54/compare/788991d11d0e...b51074d1951d",
+  "commits": [
+    {
+      "id": "5fe475b4ed67cea2b50a632e4f19d7d09cb71481",
+      "tree_id": "5660a9bdfd13ba2a7151bfb7c421eada0802d65c",
+      "distinct": true,
+      "message": "Cambio en llamadas http vue.js",
+      "timestamp": "2017-10-19T14:42:10-03:00",
+      "url": "https://github.com/e-gob/traspaso-l54/commit/5fe475b4ed67cea2b50a632e4f19d7d09cb71481",
+      "author": {
+        "name": "Katherine Inalef",
+        "email": "katherineinalef@iMac-de-Marcelo.local"
+      },
+      "committer": {
+        "name": "Katherine Inalef",
+        "email": "katherineinalef@iMac-de-Marcelo.local"
+      },
+      "added": [
+
+      ],
+      "removed": [
+
+      ],
+      "modified": [
+        "public/js/personal.js",
+        "public/js/usuario.js"
+      ]
+    },
+    {
+      "id": "b51074d1951d571f0765b17b4d828bc3ddd6c2f9",
+      "tree_id": "263f89bd54c60e24dcd061735ece8a31bb542023",
+      "distinct": true,
+      "message": "Merge branch 'devel' of github.com:e-gob/traspaso-l54 into devel",
+      "timestamp": "2017-10-19T14:42:19-03:00",
+      "url": "https://github.com/e-gob/traspaso-l54/commit/b51074d1951d571f0765b17b4d828bc3ddd6c2f9",
+      "author": {
+        "name": "Katherine Inalef",
+        "email": "katherineinalef@iMac-de-Marcelo.local"
+      },
+      "committer": {
+        "name": "Katherine Inalef",
+        "email": "katherineinalef@iMac-de-Marcelo.local"
+      },
+      "added": [
+
+      ],
+      "removed": [
+
+      ],
+      "modified": [
+        "app/Exceptions/Handler.php",
+        "resources/views/404.blade.php",
+        "resources/views/500.blade.php"
+      ]
+    }
+  ],
+  "head_commit": {
+    "id": "b51074d1951d571f0765b17b4d828bc3ddd6c2f9",
+    "tree_id": "263f89bd54c60e24dcd061735ece8a31bb542023",
+    "distinct": true,
+    "message": "Merge branch 'devel' of github.com:e-gob/traspaso-l54 into devel",
+    "timestamp": "2017-10-19T14:42:19-03:00",
+    "url": "https://github.com/e-gob/traspaso-l54/commit/b51074d1951d571f0765b17b4d828bc3ddd6c2f9",
+    "author": {
+      "name": "Katherine Inalef",
+      "email": "katherineinalef@iMac-de-Marcelo.local"
+    },
+    "committer": {
+      "name": "Katherine Inalef",
+      "email": "katherineinalef@iMac-de-Marcelo.local"
+    },
+    "added": [
+
+    ],
+    "removed": [
+
+    ],
+    "modified": [
+      "app/Exceptions/Handler.php",
+      "resources/views/404.blade.php",
+      "resources/views/500.blade.php"
+    ]
+  },
+  "repository": {
+    "id": 101218689,
+    "name": "traspaso-l54",
+    "full_name": "e-gob/traspaso-l54",
+    "owner": {
+      "name": "e-gob",
+      "email": null,
+      "login": "e-gob",
+      "id": 7003419,
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7003419?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/e-gob",
+      "html_url": "https://github.com/e-gob",
+      "followers_url": "https://api.github.com/users/e-gob/followers",
+      "following_url": "https://api.github.com/users/e-gob/following{/other_user}",
+      "gists_url": "https://api.github.com/users/e-gob/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/e-gob/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/e-gob/subscriptions",
+      "organizations_url": "https://api.github.com/users/e-gob/orgs",
+      "repos_url": "https://api.github.com/users/e-gob/repos",
+      "events_url": "https://api.github.com/users/e-gob/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/e-gob/received_events",
+      "type": "Organization",
+      "site_admin": false
+    },
+    "private": false,
+    "html_url": "https://github.com/e-gob/traspaso-l54",
+    "description": "Plataforma de Traspaso de Gobierno (Laravel 5.4)",
+    "fork": false,
+    "url": "https://github.com/e-gob/traspaso-l54",
+    "forks_url": "https://api.github.com/repos/e-gob/traspaso-l54/forks",
+    "keys_url": "https://api.github.com/repos/e-gob/traspaso-l54/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/e-gob/traspaso-l54/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/e-gob/traspaso-l54/teams",
+    "hooks_url": "https://api.github.com/repos/e-gob/traspaso-l54/hooks",
+    "issue_events_url": "https://api.github.com/repos/e-gob/traspaso-l54/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/e-gob/traspaso-l54/events",
+    "assignees_url": "https://api.github.com/repos/e-gob/traspaso-l54/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/e-gob/traspaso-l54/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/e-gob/traspaso-l54/tags",
+    "blobs_url": "https://api.github.com/repos/e-gob/traspaso-l54/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/e-gob/traspaso-l54/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/e-gob/traspaso-l54/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/e-gob/traspaso-l54/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/e-gob/traspaso-l54/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/e-gob/traspaso-l54/languages",
+    "stargazers_url": "https://api.github.com/repos/e-gob/traspaso-l54/stargazers",
+    "contributors_url": "https://api.github.com/repos/e-gob/traspaso-l54/contributors",
+    "subscribers_url": "https://api.github.com/repos/e-gob/traspaso-l54/subscribers",
+    "subscription_url": "https://api.github.com/repos/e-gob/traspaso-l54/subscription",
+    "commits_url": "https://api.github.com/repos/e-gob/traspaso-l54/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/e-gob/traspaso-l54/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/e-gob/traspaso-l54/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/e-gob/traspaso-l54/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/e-gob/traspaso-l54/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/e-gob/traspaso-l54/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/e-gob/traspaso-l54/merges",
+    "archive_url": "https://api.github.com/repos/e-gob/traspaso-l54/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/e-gob/traspaso-l54/downloads",
+    "issues_url": "https://api.github.com/repos/e-gob/traspaso-l54/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/e-gob/traspaso-l54/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/e-gob/traspaso-l54/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/e-gob/traspaso-l54/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/e-gob/traspaso-l54/labels{/name}",
+    "releases_url": "https://api.github.com/repos/e-gob/traspaso-l54/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/e-gob/traspaso-l54/deployments",
+    "created_at": 1503517504,
+    "updated_at": "2017-09-28T19:54:12Z",
+    "pushed_at": 1508434954,
+    "git_url": "git://github.com/e-gob/traspaso-l54.git",
+    "ssh_url": "git@github.com:e-gob/traspaso-l54.git",
+    "clone_url": "https://github.com/e-gob/traspaso-l54.git",
+    "svn_url": "https://github.com/e-gob/traspaso-l54",
+    "homepage": "",
+    "size": 16684,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "language": "JavaScript",
+    "has_issues": true,
+    "has_projects": true,
+    "has_downloads": true,
+    "has_wiki": true,
+    "has_pages": false,
+    "forks_count": 1,
+    "mirror_url": null,
+    "open_issues_count": 0,
+    "forks": 1,
+    "open_issues": 0,
+    "watchers": 0,
+    "default_branch": "master",
+    "stargazers": 0,
+    "master_branch": "master",
+    "organization": "e-gob"
+  },
+  "pusher": {
+    "name": "kinalef",
+    "email": "katherineinalef@gmail.com"
+  },
+  "organization": {
+    "login": "e-gob",
+    "id": 7003419,
+    "url": "https://api.github.com/orgs/e-gob",
+    "repos_url": "https://api.github.com/orgs/e-gob/repos",
+    "events_url": "https://api.github.com/orgs/e-gob/events",
+    "hooks_url": "https://api.github.com/orgs/e-gob/hooks",
+    "issues_url": "https://api.github.com/orgs/e-gob/issues",
+    "members_url": "https://api.github.com/orgs/e-gob/members{/member}",
+    "public_members_url": "https://api.github.com/orgs/e-gob/public_members{/member}",
+    "avatar_url": "https://avatars0.githubusercontent.com/u/7003419?v=4",
+    "description": null
+  },
+  "sender": {
+    "login": "kinalef",
+    "id": 959894,
+    "avatar_url": "https://avatars2.githubusercontent.com/u/959894?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/kinalef",
+    "html_url": "https://github.com/kinalef",
+    "followers_url": "https://api.github.com/users/kinalef/followers",
+    "following_url": "https://api.github.com/users/kinalef/following{/other_user}",
+    "gists_url": "https://api.github.com/users/kinalef/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/kinalef/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/kinalef/subscriptions",
+    "organizations_url": "https://api.github.com/users/kinalef/orgs",
+    "repos_url": "https://api.github.com/users/kinalef/repos",
+    "events_url": "https://api.github.com/users/kinalef/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/kinalef/received_events",
+    "type": "User",
+    "site_admin": false
+  }
+}
