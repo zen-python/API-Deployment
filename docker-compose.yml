@@ -1,0 +1,83 @@
+version: "2"
+
+volumes:
+  redis:
+
+services:
+  redis:
+    image: redis:3.0-alpine
+    container_name: deploy-api-redis
+    command: redis-server
+    volumes:
+      - redis:/data
+    expose:
+      - 6379
+    restart: always
+    networks:
+      deploy-api-vpc:
+        ipv4_address: 10.5.0.2
+
+  app:
+    image: jtorresheredia/deploy-api
+    container_name: deploy-api
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DBM_HOST=${DBM_HOST}
+      - DBM_REPLICASET=${DBM_REPLICASET}
+      - DBM_USER=${DBM_USER}
+      - DBM_PASSWORD=${DBM_PASSWORD}
+      - DBM_DB=${DBM_DB}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - DEPLOYMENT_URL=${DEPLOYMENT_URL}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/www/docker:/var/www/docker
+      - /storage:/storage
+      - .:/opt/app
+    ports:
+      - 8000:8000
+    tty: true
+    depends_on:
+      - redis
+      - celery
+    restart: always
+    command: gunicorn -b 0.0.0.0 -w 4 --access-logfile=- wsgi:app
+    networks:
+      deploy-api-vpc:
+        ipv4_address: 10.5.0.3
+
+  celery:
+    image: jtorresheredia/deploy-api
+    container_name: deploy-api-celery
+    command: celery worker -A app.tasks -E -B --loglevel=info
+    volumes:
+      - .:/opt/app
+    restart: always
+    depends_on:
+      - redis
+    networks:
+      deploy-api-vpc:
+        ipv4_address: 10.5.0.4
+
+  celery-flower:
+    image: jtorresheredia/deploy-api
+    container_name: deploy-api-flower
+    command: celery flower -A app --address=0.0.0.0 --port=5555
+    volumes:
+      - .:/opt/app
+    ports:
+      - 5555:5555
+    depends_on:
+      - redis
+    networks:
+      deploy-api-vpc:
+        ipv4_address: 10.5.0.5
+
+networks:
+  deploy-api-vpc:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1

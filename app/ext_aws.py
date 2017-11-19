@@ -49,7 +49,7 @@ class AWSExt(object):
         else:
             self.docker_message(payload)
 
-    def git_message(self, payload):
+    def git_message(self, payload, task_id):
         from app import infra_ext
         # RemotePdb('127.0.0.1', 44445).set_trace()
         if task_id:

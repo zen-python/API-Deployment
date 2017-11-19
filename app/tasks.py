@@ -1,4 +1,3 @@
-import psutil
 import time
 from celery import states
 from celery.contrib import rdb
