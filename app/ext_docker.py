@@ -14,8 +14,10 @@ class DockerExt(object):
     def init_app(self, app):
         self.app = app
 
-    def update_docker(self, repo_image, tag):
+    def update_docker(self, repo_image, tag, autoscaling_grp):
+        from app.tasks import run_command
         DEPLOYMENT_URL = current_app.config['DEPLOYMENT_URL']
+        container_version = 'v0'
         client = docker.APIClient(base_url='unix://var/run/docker.sock')
         # containers = client.containers(filters={'ancestor': f'{repo_image}:{tag}'})
         containers = client.containers()
@@ -25,24 +27,24 @@ class DockerExt(object):
             if repo_image in container['Image']:
                 image = container['Image']
                 image_id = container['ImageID']
-                image_name = image.split(':')[0]
+                # image_name = image.split(':')[0]
                 container_version = image.split(':')[1]
                 container_names.append(container['Names'][0])
                 container_ids.append(container['Id'])
-        repo_version = requests.get(DEPLOYMENT_URL.format(image_name)).text
+        repo_version = requests.get(DEPLOYMENT_URL.format(repo_image)).text
         if container_version != repo_version:
             # RemotePdb('127.0.0.1', 44445).set_trace()
-            client.pull(image_name, repo_version)
+            client.pull(repo_image, repo_version)
             for container_id in container_ids:
                 client.stop(container_id)
                 client.wait(container_id)
                 client.remove_container(container_id)
             client.remove_image(image_id, force=True)
-            client.prune_images(filters={'dangling': True})
             for container_name in container_names:
                 # ejecutar bash de docker_script
-                print(container_name)
-                pass
+                command = f'/storage/{autoscaling_grp}/conf/docker_scripts{container_name}.sh'
+                run_command.apply_async(args=[command])
+            client.prune_images(filters={'dangling': True})
 
     def exec_commands(self, deploy_image, commands, path):
         client = docker.APIClient(base_url='unix://var/run/docker.sock')

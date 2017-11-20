@@ -46,4 +46,5 @@ class InfraExt(object):
         from app.tasks import update_docker_task
         repo_image = payload['repo_image']
         tag = payload['tag']
-        update_docker_task.apply_async(args=[repo_image, tag])
+        autoscaling_grp = payload['']
+        update_docker_task.apply_async(args=[repo_image, tag, autoscaling_grp])
