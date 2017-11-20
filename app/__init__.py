@@ -22,6 +22,7 @@ def create_app(config_name):
         def after_request(after_req):
             data.update(logcfg.get_request_message_data(after_req))
             http_request = data['werkzeug.request'].data
+
             if http_request:
                 parsed = json.loads(http_request)
                 print(json.dumps(parsed, indent=4, sort_keys=True))
