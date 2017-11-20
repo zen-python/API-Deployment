@@ -30,8 +30,9 @@ class InfraExt(object):
         url_webhook = f'http://{ip_address}:8001/docker_webhook'
         res = requests.post(url_webhook, data=json.dumps(payload), headers=headers)
 
+
         # for ip_address in payload[0]['instances']:
-        #    url_webhook = f'http://{ip_address}:8011/docker_webhook'
+        #    url_webhook = f'http://{ip_address}:8001/docker_webhook'
         # res = requests.post(url_webhook, data=payload).json()
         # if res:
         #    return {'response': res}
