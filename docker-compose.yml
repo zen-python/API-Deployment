@@ -35,14 +35,14 @@ services:
       - /var/www/docker:/var/www/docker
       - /storage:/storage
       - .:/opt/app
-    ports:
-      - 8000:8000
+    expose:
+      - 11560
     tty: true
     depends_on:
       - redis
       - celery
     restart: always
-    command: gunicorn -b 0.0.0.0 -w 4 --access-logfile=- wsgi:app
+    command: gunicorn -b 0.0.0.0:11560 -w 4 --access-logfile=- wsgi:app
     networks:
       deploy-api-vpc:
         ipv4_address: 10.5.0.3
@@ -66,8 +66,8 @@ services:
     command: celery flower -A app --address=0.0.0.0 --port=5555
     volumes:
       - .:/opt/app
-    ports:
-      - 5555:5555
+    expose:
+      - 5555
     depends_on:
       - redis
     networks:
