@@ -22,11 +22,11 @@ def run_docker_commands_task(self, docker_name, run_commands):
 
 
 @celery.task(bind=True)
-def update_docker_task(self, repo_image, tag):
+def update_docker_task(self, repo_image, tag, autoscaling):
     app = create_app('default')
     with app.app_context():
         self.update_state(state='PROGRESS', meta={'message': 'Task in progress.'})
-        docker_ext.update_docker(repo_image, tag)
+        docker_ext.update_docker(repo_image, tag, autoscaling)
         return {'message': 'Task completed'}
 
 

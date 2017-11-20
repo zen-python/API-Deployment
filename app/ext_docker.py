@@ -14,7 +14,7 @@ class DockerExt(object):
     def init_app(self, app):
         self.app = app
 
-    def update_docker(self, repo_image, tag, autoscaling_grp):
+    def update_docker(self, repo_image, tag, autoscaling):
         from app.tasks import run_command
         DEPLOYMENT_URL = current_app.config['DEPLOYMENT_URL']
         container_version = 'v0'
@@ -42,7 +42,7 @@ class DockerExt(object):
             client.remove_image(image_id, force=True)
             for container_name in container_names:
                 # ejecutar bash de docker_script
-                command = f'/storage/{autoscaling_grp}/conf/docker_scripts{container_name}.sh'
+                command = f'/storage/{autoscaling}/conf/docker_scripts{container_name}.sh'
                 run_command.apply_async(args=[command])
             client.prune_images(filters={'dangling': True})
 
