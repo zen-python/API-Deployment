@@ -17,25 +17,25 @@ class InfraExt(object):
 
     def git_commit_msg(self, payload):
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-        # for ip_address in payload['instances']:
-        ip_address = '127.0.0.1'
-        url_webhook = f'http://{ip_address}:8001/git_webhook'
-        res = requests.post(url_webhook, data=json.dumps(payload), headers=headers)
-        # if res:
-        #    return {'response': res}
+        instances = payload.pop("groups", None)
+        for instance in instances:
+            auto_scaling = {'auto_scaling': instance['auto_scaling']}
+            for ip_address in instance['instances']:
+                url_webhook = f'http://{ip_address}:11560/git_webhook'
+                payload = {**payload, **auto_scaling}
+                res = requests.post(url_webhook, data=json.dumps(payload), headers=headers)
+        return res.status_code
 
     def docker_commit_msg(self, payload):
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-        ip_address = '127.0.0.1'
-        url_webhook = f'http://{ip_address}:8001/docker_webhook'
-        res = requests.post(url_webhook, data=json.dumps(payload), headers=headers)
-
-
-        # for ip_address in payload[0]['instances']:
-        #    url_webhook = f'http://{ip_address}:8001/docker_webhook'
-        # res = requests.post(url_webhook, data=payload).json()
-        # if res:
-        #    return {'response': res}
+        instances = payload.pop("groups", None)
+        for instance in instances:
+            auto_scaling = {'auto_scaling': instance['auto_scaling']}
+            for ip_address in instance['instances']:
+                url_webhook = f'http://{ip_address}:11560/docker_webhook'
+                payload = {**payload, **auto_scaling}
+                res = requests.post(url_webhook, data=json.dumps(payload), headers=headers)
+        return res.status_code
 
     def run_rsync(self, payload):
         from app.tasks import run_command

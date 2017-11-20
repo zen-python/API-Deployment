@@ -55,7 +55,7 @@ def git_commit():
         commands = run_commands['commands']
         task = exec_commands.apply_async(args=[deploy_image, commands, path])
         task_id = task.id
-    auto_scaling_grp = re.findall('/storage/(.*?)/www', path, re.DOTALL)[0]
+    auto_scaling_grp = [re.findall('/storage/(.*?)/www', path, re.DOTALL)[0]]
     payload = {'message': 'git', 'repo_full': repo_full, 'branch': branch, 'storage_path': path}
     git_message.apply_async(args=[auto_scaling_grp, payload, task_id])
     # Actualizamos fecha de modificacion del repo
