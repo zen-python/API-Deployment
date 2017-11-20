@@ -35,8 +35,8 @@ services:
       - /var/www/docker:/var/www/docker
       - /storage:/storage
       - .:/opt/app
-    expose:
-      - 11560
+    ports:
+      - 11560:11560
     tty: true
     depends_on:
       - redis
