@@ -18,7 +18,7 @@ services:
         ipv4_address: 10.5.0.2
 
   app:
-    image: jtorresheredia/deploy-api
+    image: egob/api-deployment:latest
     container_name: deploy-api
     environment:
       - SECRET_KEY=${SECRET_KEY}
@@ -48,7 +48,7 @@ services:
         ipv4_address: 10.5.0.3
 
   celery:
-    image: jtorresheredia/deploy-api
+    image: egob/api-deployment:latest
     container_name: deploy-api-celery
     command: celery worker -A app.tasks -E -B --loglevel=info
     volumes:
@@ -61,7 +61,7 @@ services:
         ipv4_address: 10.5.0.4
 
   celery-flower:
-    image: jtorresheredia/deploy-api
+    image: egob/api-deployment:latest
     container_name: deploy-api-flower
     command: celery flower -A app --address=0.0.0.0 --port=5555
     volumes:
