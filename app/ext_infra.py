@@ -40,7 +40,7 @@ class InfraExt(object):
     def run_rsync(self, payload):
         from app.tasks import run_command
         source_path = payload['storage_path']
-        command = f'sudo /usr/bin/rsync --progress --stats -avxzl --exclude "*/.git/" -og --chown=www-data:www-data --chmod=D2775,F664 {source_path} /var/www/docker --delete'
+        command = f'/usr/bin/rsync --progress --stats -avxzl --exclude "*/.git/" -og --chown=www-data:www-data --chmod=D2775,F664 {source_path} /var/www/docker --delete'
         run_command.apply_async(args=[command])
 
     def update_docker(self, payload):

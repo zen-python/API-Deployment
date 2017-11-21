@@ -17,7 +17,7 @@ RUN deluser xfs
 RUN set -x ; \
   addgroup -g 33 -S www-data ; \
   adduser -u 33 -D -S -G www-data www-data && exit 0 ; exit 1
-RUN adduser -D default;                                               \
-    echo "default ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/default; \
-    chmod 0440 /etc/sudoers.d/default
-USER default
+#RUN adduser -D default;                                               \
+#    echo "default ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/default; \
+#    chmod 0440 /etc/sudoers.d/default
+#USER default
