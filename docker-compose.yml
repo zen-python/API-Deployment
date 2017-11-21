@@ -50,7 +50,9 @@ services:
   celery:
     image: egob/api-deployment:latest
     container_name: deploy-api-celery
-    command: celery worker -A app.tasks -u default -E -B --loglevel=info
+    command: celery worker -A app.tasks -E -B --loglevel=info
+    environment:
+      - C_FORCE_ROOT=true
     volumes:
       - .:/opt/app
     restart: always
