@@ -13,7 +13,9 @@ services:
     expose:
       - 6379
     restart: always
-    ipv4_address: 10.5.0.2
+    networks:
+      deploy-api-vpc:
+        ipv4_address: 10.5.0.2
 
   app:
     image: egob/api-deployment:latest
