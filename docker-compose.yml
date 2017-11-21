@@ -13,8 +13,7 @@ services:
     expose:
       - 6379
     restart: always
-    networks:
-      deploy-api-vpc:
+
         ipv4_address: 10.5.0.2
 
   app:
@@ -50,11 +49,23 @@ services:
   celery:
     image: egob/api-deployment:latest
     container_name: deploy-api-celery
-    command: celery worker -A app.tasks -E -B --loglevel=info
+    command: celery worker -A app.tasks --uid default --gid default -E -B --loglevel=info
     environment:
-      - C_FORCE_ROOT=true
-    volumes:
-      - .:/opt/app
+     - SECRET_KEY=${SECRET_KEY}
+     - DBM_HOST=${DBM_HOST}
+     - DBM_REPLICASET=${DBM_REPLICASET}
+     - DBM_USER=${DBM_USER}
+     - DBM_PASSWORD=${DBM_PASSWORD}
+     - DBM_DB=${DBM_DB}
+     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+     - DEPLOYMENT_URL=${DEPLOYMENT_URL}
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /var/www/docker:/var/www/docker
+        - /storage:/storage
+        - .:/opt/app
+
     restart: always
     depends_on:
       - redis
