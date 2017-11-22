@@ -39,11 +39,11 @@ class DockerExt(object):
                 client.stop(container_id)
                 client.wait(container_id)
                 client.remove_container(container_id)
-            client.remove_image(image_id, force=True)
             for container_name in container_names:
                 # ejecutar bash de docker_script
                 command = f'/storage/{autoscaling}/conf/docker_scripts{container_name}.sh post {repo_image}:{tag}'
                 run_command.apply_async(args=[command])
+            client.remove_image(image_id, force=True)
             client.prune_images(filters={'dangling': True})
 
     def exec_commands(self, deploy_image, commands, path):
