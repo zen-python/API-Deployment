@@ -23,25 +23,32 @@ class DockerExt(object):
         containers = client.containers()
         container_names = []
         container_ids = []
+        print(autoscaling)
         for container in containers:
             if repo_image in container['Image']:
+                print(repo_image)
                 image = container['Image']
                 image_id = container['ImageID']
                 # image_name = image.split(':')[0]
                 container_version = image.split(':')[1]
                 container_names.append(container['Names'][0])
                 container_ids.append(container['Id'])
+        print(container_names)
+        print(container_ids)
         repo_version = requests.get(DEPLOYMENT_URL.format(repo_image)).text
-        if container_version != repo_version:
+        if container_version != repo_versioni and 'dev' not in tag:
             # RemotePdb('127.0.0.1', 44445).set_trace()
             client.pull(repo_image, repo_version)
             for container_id in container_ids:
                 client.stop(container_id)
                 client.wait(container_id)
                 client.remove_container(container_id)
+            print(container_names)
             for container_name in container_names:
+                print(container_name)
                 # ejecutar bash de docker_script
-                command = f'/storage/{autoscaling}/conf/docker_scripts{container_name}.sh post {repo_image}:{tag}'
+                command = f'echo "/storage/{autoscaling}/conf/docker_scripts{container_name}.sh post {repo_image}:{tag}" | nc 10.5.0.1 54321'
+                print(command)
                 run_command.apply_async(args=[command])
             client.remove_image(image_id, force=True)
             client.prune_images(filters={'dangling': True})

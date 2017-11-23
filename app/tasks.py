@@ -59,7 +59,7 @@ def exec_commands(self, deploy_image, commands, path):
 def run_command(self, command, timeout=1200):
     if timeout and int(timeout) > 0:
         BASH_TIMEOUT = timeout
-    popen = Popen(["exec " + command], stdout=PIPE, stderr=PIPE, shell=True)
+    popen = Popen([f"""exec {command}"""], stdout=PIPE, stderr=PIPE, shell=True)
     st_time = time.time()
     wait_time = BASH_TIMEOUT
     while True:

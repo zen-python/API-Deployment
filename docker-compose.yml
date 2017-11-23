@@ -50,7 +50,7 @@ services:
   celery:
     image: egob/api-deployment:latest
     container_name: deploy-api-celery
-    command: celery worker -A app.tasks --uid default --gid default -E -B --loglevel=info
+    command: celery worker -A app.tasks -E --loglevel=info
     environment:
      - SECRET_KEY=${SECRET_KEY}
      - DBM_HOST=${DBM_HOST}
