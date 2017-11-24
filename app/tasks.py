@@ -6,14 +6,6 @@ from subprocess import Popen, PIPE
 from app.extensions import celery
 from app import create_app, docker_ext, infra_ext, aws_ext
 
-
-def kill(proc_pid):
-    process = psutil.Process(proc_pid)
-    for proc in process.get_children(recursive=True):
-        proc.kill()
-    process.kill()
-
-
 @celery.task(bind=True)
 def run_docker_commands_task(self, docker_name, run_commands):
     self.update_state(state='PROGRESS', meta={'message': 'Task in progress.'})
