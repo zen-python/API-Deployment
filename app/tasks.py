@@ -22,7 +22,7 @@ def send_socket_message(self, command):
     self.update_state(state='PROGRESS', meta={'message': 'Task in progress.'})
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((HOST, PORT))
-        s.sendall(command)
+        s.sendall(command.encode())
     return {'message': 'Task completed'}
 
 

@@ -16,7 +16,7 @@ class DockerExt(object):
         self.app = app
 
     def update_docker(self, repo_image, tag, autoscaling):
-        from app.tasks import run_command
+        from app.tasks import send_socket_message
         DEPLOYMENT_URL = current_app.config['DEPLOYMENT_URL']
         container_version = 'v0'
         client = docker.APIClient(base_url='unix://var/run/docker.sock')

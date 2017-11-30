@@ -2,7 +2,7 @@ import socket
 import subprocess
 
 
-HOST = 'localhost'
+HOST = '0.0.0.0'
 PORT = 54321
 
 
