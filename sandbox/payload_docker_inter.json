@@ -1,0 +1,25 @@
+{
+    "callback_url": "https://registry.hub.docker.com/u/egob/interoperabilidad/hook/22b1gi0ejd4bc41ebd1ij53bcabgid2d1/",
+    "push_data": {
+        "images": [],
+        "pushed_at": 1509980987,
+        "pusher": "jtorresheredia",
+        "tag": "v1.492"
+    },
+    "repository": {
+        "comment_count": 0,
+        "date_created": 1509734583,
+        "description": "",
+        "full_description": null,
+        "is_official": false,
+        "is_private": true,
+        "is_trusted": false,
+        "name": "post-deploy",
+        "namespace": "jtorresheredia",
+        "owner": "jtorresheredia",
+        "repo_name": "egob/interoperabilidad",
+        "repo_url": "https://hub.docker.com/r/egob/interoperabilidad",
+        "star_count": 0,
+        "status": "Active"
+    }
+}

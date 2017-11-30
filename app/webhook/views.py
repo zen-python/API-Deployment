@@ -5,7 +5,6 @@ import subprocess
 from flask import request
 from app import aws_ext, dbm_ext, infra_ext, docker_ext
 from app.tasks import run_command, exec_commands, docker_message, git_message
-from remote_pdb import RemotePdb
 
 from . import webhook
 
@@ -63,7 +62,6 @@ def git_commit():
     # Logueamos fecha del cambio en la BD
     commit = {"repo_full": repo_full, "branch": branch, "datetime": datetime.datetime.now()}
     dbm_ext.log_commit_github(commit)
-    # RemotePdb('127.0.0.1', 4444).set_trace()
     return "True"
     #except:
     #    return "True"
@@ -82,7 +80,6 @@ def docker_commit():
     pusher = json.loads(request.data)['push_data']['pusher']
     repo_name = json.loads(request.data)['repository']['repo_name']
     # Mantenemos lista de Imagenes
-    # RemotePdb('127.0.0.1', 4444).set_trace()
     dbm_ext.update_docker_image_info(repo_name, tag, datetime.datetime.now(), pusher)
     # Actualizamos fecha del cambio en la BD
     commit = {"tag": tag, "pusher": pusher, "datetime": datetime.datetime.now(), "repo_name": repo_name}

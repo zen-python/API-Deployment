@@ -2,7 +2,6 @@ import json
 from flask import Flask, jsonify, make_response
 from app.extensions import celery, aws_ext, dbm_ext, docker_ext, infra_ext, logcfg
 from app.config import config
-from remote_pdb import RemotePdb
 
 
 def create_app(config_name):

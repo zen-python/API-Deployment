@@ -1,6 +1,5 @@
 from flask import current_app
 from pymongo import MongoClient
-# from remote_pdb import RemotePdb
 
 
 class DBMExt(object):
@@ -40,7 +39,6 @@ class DBMExt(object):
         cursor = self.__handle.deployment_code.find({"repo_full": repo_full})[0]
         if 'run_commands' in cursor:
             return cursor['run_commands']
-        # RemotePdb('127.0.0.1', 4444).set_trace()
         return None
 
     def obtain_run_commands(self, repo_full):
