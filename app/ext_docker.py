@@ -40,7 +40,7 @@ class DockerExt(object):
                 # ejecutar bash de docker_script
                 command = f'/storage/{autoscaling}/conf/docker_scripts{container_name}.sh post {repo_image}:{tag}'
                 send_socket_message.apply_async(args=[command])
-                time.sleep(1)
+                time.sleep(3)
             client.remove_image(image_id, force=True)
             client.prune_images(filters={'dangling': True})
 
