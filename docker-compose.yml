@@ -42,7 +42,7 @@ services:
       - redis
       - celery
     restart: always
-    command: gunicorn -b 0.0.0.0:11560 -w 4 --access-logfile=- wsgi:app
+    command: gunicorn -b 0.0.0.0:11560 -w 5 --access-logfile=- wsgi:app
     networks:
       deploy-api-vpc:
         ipv4_address: 10.5.0.3
