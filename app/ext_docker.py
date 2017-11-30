@@ -44,9 +44,9 @@ class DockerExt(object):
             for container_name in container_names:
                 print(container_name)
                 # ejecutar bash de docker_script
-                command = f'echo "/storage/{autoscaling}/conf/docker_scripts{container_name}.sh post {repo_image}:{tag}" | nc -q 0 10.5.0.1 54321'
+                command = f'/storage/{autoscaling}/conf/docker_scripts{container_name}.sh post {repo_image}:{tag}'
                 print(command)
-                run_command.apply_async(args=[command])
+                send_socket_message.apply_async(args=[command])
                 time.sleep(3)
             client.remove_image(image_id, force=True)
             client.prune_images(filters={'dangling': True})

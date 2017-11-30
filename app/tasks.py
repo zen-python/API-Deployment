@@ -1,4 +1,5 @@
 import time
+import socket
 from celery import states
 from celery.contrib import rdb
 from subprocess import Popen, PIPE
@@ -6,10 +7,22 @@ from subprocess import Popen, PIPE
 from app.extensions import celery
 from app import create_app, docker_ext, infra_ext, aws_ext
 
+
 @celery.task(bind=True)
 def run_docker_commands_task(self, docker_name, run_commands):
     self.update_state(state='PROGRESS', meta={'message': 'Task in progress.'})
     docker_ext.exec_commands(docker_name, run_commands)
+    return {'message': 'Task completed'}
+
+
+@celery.task(bind=True)
+def send_socket_message(self, command):
+    HOST = '10.5.0.1'
+    PORT = 54321
+    self.update_state(state='PROGRESS', meta={'message': 'Task in progress.'})
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((HOST, PORT))
+        s.sendall(command)
     return {'message': 'Task completed'}
 
 
