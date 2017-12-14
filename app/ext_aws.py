@@ -2,7 +2,6 @@ import backoff
 import boto3
 import botocore
 from flask import current_app
-from remote_pdb import RemotePdb
 
 
 class AWSExt(object):
@@ -52,7 +51,6 @@ class AWSExt(object):
     def git_message(self, payload, task_id):
         from app import infra_ext
         from app.tasks import exec_commands
-        # RemotePdb('127.0.0.1', 44445).set_trace()
         if task_id:
             task = exec_commands.AsyncResult(task_id)
             while task.status in ('PROGRESS', 'PENDING'):
