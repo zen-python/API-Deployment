@@ -18,7 +18,7 @@ class DockerExt(object):
         from app.tasks import send_socket_message
         DEPLOYMENT_URL = current_app.config['DEPLOYMENT_URL']
         container_version = 'v0'
-        client = docker.APIClient(base_url='unix://var/run/docker.sock')
+        client = docker.APIClient(base_url='unix://var/run/docker.sock', version='auto')
         containers = client.containers()
         container_names = []
         container_ids = []
@@ -45,7 +45,7 @@ class DockerExt(object):
             client.prune_images(filters={'dangling': True})
 
     def exec_commands(self, deploy_image, commands, path):
-        client = docker.APIClient(base_url='unix://var/run/docker.sock')
+        client = docker.APIClient(base_url='unix://var/run/docker.sock', version='auto')
         # ex: image_pull = client.pull('egob/chileatiende_v2:deploy')
         client.pull(deploy_image)
         print(deploy_image, commands, path)
