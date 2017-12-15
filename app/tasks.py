@@ -1,3 +1,4 @@
+import os
 import time
 import socket
 from celery import states
@@ -17,7 +18,7 @@ def run_docker_commands_task(self, docker_name, run_commands):
 
 @celery.task(bind=True)
 def send_socket_message(self, command):
-    HOST = '10.5.0.1'
+    HOST = os.popen("/sbin/ip route|awk '/default/ { print $3 }'").read().strip()
     PORT = 54321
     self.update_state(state='PROGRESS', meta={'message': 'Task in progress.'})
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
