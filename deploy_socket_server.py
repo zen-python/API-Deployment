@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import socket
+import asyncio
 import subprocess
 
 
@@ -16,14 +16,25 @@ def run_command(command):
     return True
 
 
-while True:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind((HOST, PORT))
-        s.listen(1)
-        conn, addr = s.accept()
-        with conn:
-            while True:
-                data = conn.recv(1024)
-                if not data:
-                    break
-                run_command('{}'.format(data.decode()))
+class EchoServerClientProtocol(asyncio.Protocol):
+    def connection_made(self, transport):
+        self.transport = transport
+
+    def data_received(self, data):
+        message = data.decode()
+        run_command('{}'.format(message))
+        self.transport.close()
+
+
+loop = asyncio.get_event_loop()
+coro = loop.create_server(EchoServerClientProtocol, HOST, PORT)
+server = loop.run_until_complete(coro)
+
+try:
+    loop.run_forever()
+except KeyboardInterrupt:
+    pass
+
+server.close()
+loop.run_until_complete(server.wait_closed())
+loop.close()
