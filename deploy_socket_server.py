@@ -16,7 +16,7 @@ def run_command(command):
     return True
 
 
-class EchoServerClientProtocol(asyncio.Protocol):
+class DeployLocalServer(asyncio.Protocol):
     def connection_made(self, transport):
         self.transport = transport
 
@@ -27,7 +27,7 @@ class EchoServerClientProtocol(asyncio.Protocol):
 
 
 loop = asyncio.get_event_loop()
-coro = loop.create_server(EchoServerClientProtocol, HOST, PORT)
+coro = loop.create_server(DeployLocalServer, HOST, PORT)
 server = loop.run_until_complete(coro)
 
 try:
