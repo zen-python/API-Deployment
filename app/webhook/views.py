@@ -47,15 +47,21 @@ def git_commit():
     task_command = run_command.apply_async(args=[command])
     while task_command.status == 'PENDING':
         pass
-    task_id = None
+    task_id = container_name = None
     run_commands = dbm_ext.obtain_deploy_image(repo_full)
     if run_commands:
         deploy_image = run_commands['image_deploy']
         commands = run_commands['commands']
         task = exec_commands.apply_async(args=[deploy_image, commands, path])
         task_id = task.id
+
+    restart_docker = dbm_ext.obtain_container_name(repo_full)
+    if restart_docker:
+        container_name = restart_docker['container_name']
+
     auto_scaling_grp = [re.findall('/storage/(.*?)/www', path, re.DOTALL)[0]]
-    payload = {'message': 'git', 'repo_full': repo_full, 'branch': branch, 'storage_path': path}
+    payload = {'message': 'git', 'repo_full': repo_full, 'branch': branch, 'storage_path': path, 'container_name': container_name}
+    print(payload)
     git_message.apply_async(args=[auto_scaling_grp, payload, task_id])
     # Actualizamos fecha de modificacion del repo
     dbm_ext.update_github_deploy(repo_full, datetime.datetime.now())

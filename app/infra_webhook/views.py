@@ -1,6 +1,6 @@
 import json
 from flask import request, jsonify
-from app import infra_ext
+from app import infra_ext, docker_ext
 from . import infra_webhook
 
 
@@ -8,6 +8,8 @@ from . import infra_webhook
 def git_commit():
     payload = json.loads(request.data)
     infra_ext.run_rsync(payload)
+    if payload['container_name'] is not None:
+        docker_ext.restart_docker(payload['container_name'])
     return jsonify(payload), 200
 
 

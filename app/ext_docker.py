@@ -64,3 +64,9 @@ class DockerExt(object):
         client.stop(container_id)
         client.wait(container_id)
         client.remove_container(container_id)
+
+    def restart_docker(self, container_name):
+        client = docker.APIClient(base_url='unix://var/run/docker.sock', version='auto')
+        container = client.containers(filters={'name': container_name})
+        container_id = container[0]['Id']
+        client.restart(container_id)

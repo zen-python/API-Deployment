@@ -41,6 +41,12 @@ class DBMExt(object):
             return cursor['run_commands']
         return None
 
+    def obtain_container_name(self, repo_full):
+        cursor = self.__handle.deployment_code.find({"repo_full": repo_full})[0]
+        if 'restart_docker' in cursor:
+            return cursor['restart_docker']
+        return None
+
     def obtain_run_commands(self, repo_full):
         return self.__handle.deployment_code.find({"repo_full": repo_full})[0]
 
