@@ -3,7 +3,7 @@ MAINTAINER Javier Torres Heredia <jtorres@minsegpres.gob.cl>
 
 ENV LANG en_US.utf8
 
-RUN apk add --no-cache --update build-base python3 python3-dev rsync sudo && \
+RUN apk add --no-cache --update build-base linux-headers python3 python3-dev rsync sudo && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install --upgrade pip setuptools && \
