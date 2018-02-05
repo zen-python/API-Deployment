@@ -76,7 +76,7 @@ services:
   celery-flower:
     image: egob/api-deployment:latest
     container_name: deploy-api-flower
-    command: celery flower -A app --address=0.0.0.0 --port=5555
+    command: celery flower -A app --address=0.0.0.0 --port=5555 --basic_auth=admin:kalafafa
     volumes:
       - .:/opt/app
     expose:
