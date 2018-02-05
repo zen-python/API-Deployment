@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Javier Torres Heredia <jtorres@minsegpres.gob.cl>
+MAINTAINER admin <admin@minsegpres.gob.cl>
 
 ENV LANG en_US.utf8
 
