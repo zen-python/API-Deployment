@@ -4,7 +4,7 @@ import json
 import subprocess
 from flask import request
 from app import aws_ext, dbm_ext, infra_ext, docker_ext
-from app.tasks import run_command, exec_commands, docker_message, git_message
+from app.tasks import run_command, exec_commands, docker_message, git_message, send_socket_message
 
 from . import webhook
 
