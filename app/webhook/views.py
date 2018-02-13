@@ -44,7 +44,8 @@ def git_commit():
     path = dbm_ext.obtain_path_deploy_code(repo_full, branch)
     # Celery tasks
     command = f'git --work-tree={path} --git-dir={path}/.git pull origin {branch}'
-    task_command = run_command.apply_async(args=[command])
+    task_command = send_socket_message.apply_async(args=[command])
+    # task_command = run_command.apply_async(args=[command])
     while task_command.status == 'PENDING':
         pass
     task_id = container_name = None
