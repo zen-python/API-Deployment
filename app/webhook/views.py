@@ -45,7 +45,8 @@ def git_commit():
     # Deploy
     path = dbm_ext.obtain_path_deploy_code(repo_full, branch)
     # Celery tasks
-    command = f'git fetch --all && git reset --hard origin/{branch}'
+    command = f'cd {path} && git fetch --all && git reset --hard origin/{branch}'
+    print(command)
     task_command = send_socket_message.apply_async(args=[command])
     # task_command = run_command.apply_async(args=[command])
     while task_command.status == 'PENDING':
