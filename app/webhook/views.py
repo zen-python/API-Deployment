@@ -36,8 +36,8 @@ def git_commit():
     #try:
     # Obtenemos respuesta del commit desde GIT
     git_json = json.loads(request.data)
-    if git_json['zen']:
-        return "True"
+    #if git_json['zen']:
+    #    return "True"
     # Obtenemos  Nombre Repositorio
     repo_full = git_json['repository']['full_name']
     # Obtenemos Branch ("ref":"refs/heads/devel")
