@@ -11,7 +11,7 @@ click==6.7
 docker==2.5.1
 docker-pycreds==0.2.3
 docutils==0.14
-Flask==0.12.5
+Flask==2.3.3
 Flask-LogConfig==0.4.2
 Flask-Script==2.0.6
 flower==0.9.7
