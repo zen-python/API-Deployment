@@ -17,7 +17,7 @@ Flask-Script==2.0.6
 flower==0.9.7
 gunicorn==19.7.1
 idna==2.6
-itsdangerous==0.24
+itsdangerous==2.1.2
 Jinja2==2.11.3
 jmespath==0.9.5
 kombu==4.6.11
