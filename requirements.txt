@@ -20,7 +20,7 @@ idna==2.6
 itsdangerous==0.24
 Jinja2==2.11.3
 jmespath==0.9.5
-kombu==4.1.0
+kombu==4.6.11
 logconfig==0.4.0
 logutils==0.3.5
 MarkupSafe==1.1.1
