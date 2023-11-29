@@ -35,7 +35,7 @@ remote-pdb==1.2.0
 requests==2.18.4
 s3transfer==0.1.13
 six==1.11.0
-tornado==4.5.3
+tornado==6.4
 urllib3==1.22
 vine==1.1.4
 websocket-client==0.44.0
