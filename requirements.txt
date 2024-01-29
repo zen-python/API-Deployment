@@ -28,7 +28,7 @@ psutil==5.4.8
 pymongo==3.5.1
 python-dateutil==2.6.1
 python-dotenv==0.7.1
-pytz==2017.3
+pytz==2023.4
 PyYAML==3.13
 redis==2.10.6
 remote-pdb==1.2.0
