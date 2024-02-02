@@ -23,7 +23,7 @@ jmespath==0.9.5
 kombu==4.6.11
 logconfig==0.4.0
 logutils==0.3.5
-MarkupSafe==1.1.1
+MarkupSafe==2.1.5
 psutil==5.4.8
 pymongo==3.5.1
 python-dateutil==2.6.1
